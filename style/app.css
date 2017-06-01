@@ -1,0 +1,427 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  background-color: lightblue;
+  overflow: hidden; }
+  body input,
+  body button,
+  body div {
+    font-size: 16px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    border: 0; }
+    body input :focus,
+    body button :focus,
+    body div :focus {
+      outline: none; }
+  body input:invalid {
+    /* firefox u crazy */
+    box-shadow: none; }
+
+/* Main container for page */
+#wrapper {
+  width: 100vw;
+  height: 100vh; }
+
+/* Menu styling*/
+#menuIndicator, #navigation, #menuBar, #menuBar #menuLeft,
+#menuBar #menuRight,
+#menuBar #menuLeft li,
+#menuBar #menuRight li, #wdw-users #lblEditUser,
+#wdw-users #lblUsersList {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  position: relative; }
+
+#menuIndicator {
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%; }
+
+.arrow-down {
+  width: 0;
+  border-left: 70px solid transparent;
+  border-right: 70px solid transparent;
+  border-top: 30px solid #03A9F4;
+  margin-top: -1px; }
+
+#navigation:hover #menuBar,
+#navigation:hover #menuIndicator {
+  -ms-transform: translateY(75px);
+  -moz-transform: translateY(75px);
+  -webkit-transform: translateY(75px);
+  transform: translateY(75px); }
+
+#navigation {
+  width: 100%;
+  height: 150px;
+  position: absolute;
+  top: -75px;
+  z-index: 1;
+  flex-direction: column; }
+  #navigation #menuBar,
+  #navigation #menuIndicator {
+    -webkit-transition: transform 1s ease;
+    -moz-transition: transform 1s ease;
+    -o-transition: transform 1s ease;
+    transition: transform 1s ease; }
+
+#menuBar {
+  justify-content: space-between;
+  background-color: #03A9F4;
+  height: 75px;
+  width: 100%; }
+  #menuBar ul li {
+    height: 75px;
+    width: 150px;
+    font-size: 20px; }
+  #menuBar ul :hover,
+  #menuBar ul :active {
+    background-color: #4FC3F7; }
+  #menuBar ul span {
+    min-width: 35px; }
+  #menuBar #menuLeft,
+  #menuBar #menuRight,
+  #menuBar #menuLeft li,
+  #menuBar #menuRight li {
+    justify-content: center; }
+
+/* Main class for pages */
+.wdw {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%; }
+  .wdw .big-button {
+    width: 300px;
+    height: 50px; }
+  .wdw .big-input {
+    width: 265px;
+    height: 50px; }
+  .wdw button {
+    background-color: #03A9F4; }
+    .wdw button :hover {
+      background-color: #4FC3F7; }
+  .wdw #btnLoginSignup,
+  .wdw #btnSignupLogin {
+    text-align: right;
+    padding-right: 15px;
+    width: 320px; }
+  .wdw #lblInfoMessage, .wdw #lblSignupMessage,
+  .wdw #lblRecoveryMessage {
+    height: 50px;
+    line-height: 50px;
+    color: #F8BBD0;
+    font-size: 20px;
+    text-align: center; }
+  .wdw #lblSignupMessage,
+  .wdw #lblRecoveryMessage {
+    color: #E57373; }
+
+.inputRow {
+  background-color: rgba(187, 222, 251, 0.3); }
+  .inputRow input {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent; }
+
+#wdw-login, #wdw-signup, #wdw-users, #wdw-forgot, #wdw-properties {
+  background-image: url("../images/page/bg-house.jpg"); }
+  #wdw-login .fa, #wdw-signup .fa, #wdw-users .fa, #wdw-forgot .fa, #wdw-properties .fa {
+    width: 31px; }
+  #wdw-login #lblPageTitle, #wdw-signup #lblPageTitle, #wdw-users #lblPageTitle, #wdw-forgot #lblPageTitle, #wdw-properties #lblPageTitle {
+    font-size: 56px;
+    position: absolute;
+    top: 15%;
+    margin-left: auto;
+    margin-right: auto; }
+  #wdw-login #btnForgotPassword, #wdw-signup #btnForgotPassword, #wdw-users #btnForgotPassword, #wdw-forgot #btnForgotPassword, #wdw-properties #btnForgotPassword {
+    text-align: center;
+    display: none; }
+  #wdw-login .inputRow, #wdw-signup .inputRow, #wdw-users .inputRow, #wdw-forgot .inputRow, #wdw-properties .inputRow {
+    height: 50px;
+    position: relative; }
+
+#wdw-signup, #wdw-users, #wdw-forgot {
+  background-image: url(../images/page/bg-tower-blue.jpg); }
+  #wdw-signup .inputRow, #wdw-users .inputRow, #wdw-forgot .inputRow {
+    background-color: rgba(1, 87, 155, 0.3); }
+
+#wdw-users {
+  background-color: #3F51B5;
+  flex-direction: row; }
+  #wdw-users #lblEditUser,
+  #wdw-users #lblUsersList {
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 80%;
+    margin: 5%; }
+  #wdw-users .inputRow {
+    width: 300px; }
+  #wdw-users #lblUsersList {
+    overflow: auto; }
+  #wdw-users #lblNewUserClose {
+    text-align: right;
+    width: 310px; }
+    #wdw-users #lblNewUserClose #btnCloseNewUser {
+      display: none;
+      cursor: pointer; }
+  #wdw-users .small-title {
+    text-align: center; }
+
+#wdw-properties {
+  flex-direction: row; }
+  #wdw-properties #mapContainer,
+  #wdw-properties #propertiesContainer {
+    height: 100%;
+    width: 50%; }
+  #wdw-properties #mapContainer {
+    background-color: lightblue; }
+  #wdw-properties #propertiesContainer {
+    background-color: #3F51B5;
+    padding: 5%; }
+  #wdw-properties #lblPropertiesCards {
+    overflow: auto;
+    height: 95%;
+    padding-right: 10px; }
+
+.no-bg {
+  background: none;
+  background-color: transparent !important; }
+
+.wrong {
+  -webkit-box-shadow: 10 0 10px #FF1744;
+  -moz-box-shadow: 0 0 10px #FF1744;
+  box-shadow: 0 0 10px #FF1744; }
+
+/* Floating label stuff */
+.floating-label {
+  position: absolute;
+  pointer-events: none;
+  top: 5px;
+  left: 30px;
+  font-size: 10px;
+  opacity: 0;
+  background-color: white;
+  color: black;
+  padding: 0 2px;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out; }
+
+.field:focus.field:valid + .floating-label {
+  opacity: 1;
+  top: -5px; }
+
+.field:focus + .floating-label {
+  color: #03A9F4; }
+
+#map {
+  width: 100%;
+  height: 100%; }
+
+/* Property card styling */
+.lblPropertyCard {
+  background-color: #E8EAF6;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  margin-bottom: 10px; }
+  .lblPropertyCard .lblPropertyImage {
+    width: 45%;
+    height: 100%;
+    margin-right: 15px;
+    cursor: pointer; }
+  .lblPropertyCard .lblPropertyInfo {
+    width: 55%;
+    height: 100%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column; }
+    .lblPropertyCard .lblPropertyInfo * {
+      color: black; }
+  .lblPropertyCard .lblPropertyAddress {
+    min-height: 38px; }
+
+.lblPropertyControls {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; }
+  .lblPropertyControls div > span:not(.fa) {
+    cursor: pointer;
+    margin-left: 15px;
+    font-weight: bold; }
+  .lblPropertyControls .btnEditProperty, .lblPropertyControls .fa-edit {
+    color: #8BC34A; }
+  .lblPropertyControls .btnRemoveProperty, .lblPropertyControls .fa-remove {
+    color: #F44336; }
+
+.lblInfoLabel {
+  float: left;
+  min-width: 70px; }
+
+#lblPropertiesListHeader {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between; }
+  #lblPropertiesListHeader #lblPropertiesListTitle {
+    display: flex;
+    align-items: center; }
+    #lblPropertiesListHeader #lblPropertiesListTitle span {
+      margin-left: 7px;
+      margin-right: 7px; }
+
+#lblPropertyDetails {
+  display: none;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+  background-image: url(../images/page/bg-tower-blue.jpg); }
+  #lblPropertyDetails .inputRow {
+    width: 300px; }
+  #lblPropertyDetails #lblNewPropertyClose {
+    width: 40%;
+    text-align: right; }
+  #lblPropertyDetails #btnCloseProperty {
+    cursor: pointer; }
+  #lblPropertyDetails select {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 150px; }
+  #lblPropertyDetails .images {
+    padding-left: 30px;
+    margin: 10px; }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
+/* Placehoder color */
+::-webkit-input-placeholder {
+  color: #fff;
+  opacity: 0.6; }
+
+::-moz-placeholder {
+  color: #fff;
+  opacity: 0.6; }
+
+:-ms-input-placeholder {
+  color: #fff;
+  opacity: 0.6; }
+
+:-moz-placeholder {
+  color: #fff;
+  opacity: 0.6; }
+
+/* Table styling*/
+table {
+  max-height: 100%; }
+
+.table-fill {
+  background: white;
+  border-collapse: collapse;
+  margin: auto;
+  width: 100%;
+  animation: float 5s infinite; }
+
+th {
+  color: #fff;
+  background: #03A9F4;
+  border-bottom: 4px solid #9ea7af;
+  border-right: 1px solid #343a45;
+  font-size: 20px;
+  padding: 24px;
+  text-align: left;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align: middle;
+  min-width: 50px; }
+
+th:last-child {
+  border-right: none;
+  max-width: 50px;
+  padding: 5px; }
+
+tr {
+  border-top: 1px solid #C1C3D1;
+  border-bottom-: 1px solid #C1C3D1;
+  position: relative;
+  color: #666B85;
+  font-size: 16px;
+  font-weight: normal;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.1); }
+  tr td {
+    cursor: pointer; }
+
+tr:hover td {
+  background: #3F51B5;
+  color: #FFFFFF;
+  border-top: 1px solid #22262e;
+  border-bottom: 1px solid #22262e; }
+
+tr:first-child {
+  border-top: none; }
+
+tr:last-child {
+  border-bottom: none; }
+
+tr:nth-child(odd) td {
+  background: #EBEBEB; }
+
+tr:nth-child(odd):hover td {
+  background: #3F51B5; }
+
+tr:last-child td:first-child {
+  border-bottom-left-radius: 3px; }
+
+tr:last-child td:last-child {
+  border-bottom-right-radius: 3px; }
+
+td {
+  background: #FFFFFF;
+  padding: 20px;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 300;
+  font-size: 16px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #C1C3D1; }
+
+td:last-child {
+  border-right: 0px;
+  padding: 5px; }
+
+th.text-left {
+  text-align: left; }
+
+th.text-center {
+  text-align: center; }
+
+th.text-right {
+  text-align: right; }
+
+td.text-left {
+  text-align: left; }
+
+td.text-center {
+  text-align: center; }
+
+td.text-right {
+  text-align: right; }
+
+/*# sourceMappingURL=app.css.map */
